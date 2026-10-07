@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172834">
+  <meta name="description" content="Персональное предложение на тягач Volvo FH Globetrotter для Георгия Амаяковича Медалиева.">
+  <title>Volvo FH — персональное предложение для Георгия Амаяковича</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#172834;--steel:#355366;--blue:#6e9db4;--paper:#f0f3f2;--white:#fff;--line:#c7d1d2;--orange:#c97939}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    .sheet{max-width:1440px;margin:auto;min-height:100vh;background:#f7f9f8;box-shadow:0 16px 60px #12243012}
+    .topline{height:7px;background:var(--ink)}
+    .masthead{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:25px clamp(24px,5.5vw,78px);border-bottom:1px solid var(--line)}
+    .masthead .brand{font:800 26px/1 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase}.masthead .brand span{color:var(--orange)}
+    .masthead .meta{text-align:right;font:700 11px/1.5 Manrope,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--steel)}
+    .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);min-height:665px}
+    .copy{padding:clamp(36px,6vw,86px) clamp(24px,5.5vw,78px) 54px;display:flex;flex-direction:column}
+    .eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.19em;text-transform:uppercase;color:var(--steel)}.eyebrow:before{content:"";width:30px;height:2px;background:var(--orange)}
+    h1{font:800 clamp(76px,10vw,148px)/.78 'Barlow Condensed',Impact,sans-serif;text-transform:uppercase;letter-spacing:-.035em;margin:54px 0 0}h1 span{display:block;color:var(--steel)}
+    .hero-sub{max-width:540px;margin:34px 0 0;font-size:clamp(18px,2vw,23px);font-weight:600;line-height:1.42}
+    .rule{height:1px;background:var(--line);margin:auto 0 29px}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}.stat small{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#667f8c;margin-bottom:9px}.stat strong{font:700 clamp(28px,3.2vw,42px)/1 'Barlow Condensed',Impact,sans-serif;letter-spacing:.01em;text-transform:uppercase}
+    .photo{position:relative;min-height:665px;overflow:hidden;background:#758590}.photo img{position:absolute;width:100%;height:100%;object-fit:cover;object-position:center 52%;transform:scale(1.01)}.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#17283428,transparent 30%,transparent 76%,#17283491)}
+    .photo-label{position:absolute;left:30px;bottom:27px;z-index:1;color:white;font:700 12px/1.5 Manrope,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}.photo-label b{display:block;font:800 25px/1 'Barlow Condensed',sans-serif;letter-spacing:.08em}
+    .offer{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:#fff}
+    .offer-left,.offer-right{padding:clamp(34px,4.5vw,65px) clamp(24px,5.5vw,78px)}.offer-left{border-right:1px solid #547080}.offer-kicker{font-size:11px;font-weight:800;letter-spacing:.19em;text-transform:uppercase;color:#a5c2cf}.old{font:600 clamp(27px,3.5vw,42px)/1 'Barlow Condensed',sans-serif;color:#a7b7be;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--orange);margin-top:14px}.price{font:800 clamp(60px,8vw,113px)/.87 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.02em;margin-top:9px;white-space:nowrap}.price small{font-size:.54em;vertical-align:top;margin-left:5px}.saving{display:inline-block;margin-top:23px;padding:10px 14px;border:1px solid #a4bdc9;border-radius:2px;color:#e4eef1;font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+    .offer-right{display:flex;flex-direction:column;justify-content:space-between;gap:52px}.friend{max-width:560px;font:600 clamp(28px,3.6vw,48px)/1.06 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.015em}.friend em{color:#e5a66e;font-style:normal}.deadline{border-top:1px solid #547080;padding-top:24px;font-size:15px;line-height:1.55}.deadline strong{display:block;font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:#a5c2cf;margin-bottom:9px}
+    .personal{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}.address{padding:43px clamp(24px,5.5vw,78px);min-height:150px}.address+.address{border-left:1px solid var(--line)}.address small{display:block;color:#6b808b;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;margin-bottom:14px}.address strong{font-size:clamp(18px,2.1vw,26px);line-height:1.25}
+    .closing{padding:clamp(45px,5.5vw,76px) clamp(24px,5.5vw,78px) 34px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}.closing h2{font:800 clamp(44px,6.5vw,86px)/.93 'Barlow Condensed',Impact,sans-serif;max-width:800px;text-transform:uppercase;letter-spacing:-.018em;margin:0}.closing h2 span{color:var(--orange)}.closing p{max-width:245px;margin:0;font-size:13px;line-height:1.65;color:#4c6471}
+    footer{padding:20px clamp(24px,5.5vw,78px) 32px;display:flex;justify-content:space-between;gap:20px;color:#718691;font-size:11px;line-height:1.55;border-top:1px solid var(--line)}
+    @media(max-width:950px){.hero{grid-template-columns:1fr 42%}.copy{padding-top:55px}.hero,.photo{min-height:600px}h1{font-size:clamp(76px,12vw,120px)}.offer{grid-template-columns:1fr 1fr}.price{font-size:clamp(62px,9vw,90px)}}
+    @media(max-width:690px){.masthead{padding:19px 22px;display:block}.masthead .brand{font-size:22px}.masthead .meta{font-size:9px;text-align:left;margin-top:10px}.hero{display:flex;flex-direction:column}.copy{min-height:505px;padding:43px 24px 32px}.hero-sub{margin-top:26px}h1{margin-top:43px;font-size:clamp(83px,22vw,130px)}.rule{margin-top:45px}.stats{grid-template-columns:1.12fr .88fr;gap:14px}.stat strong{font-size:clamp(27px,7vw,34px)}.photo{min-height:515px}.photo img{object-position:center 52%}.offer{display:flex;flex-direction:column}.offer-left,.offer-right{padding:34px 24px}.offer-left{border-right:0;border-bottom:1px solid #547080}.offer-right{gap:28px}.personal{grid-template-columns:1fr}.address{padding:28px 24px;min-height:0}.address+.address{border-left:0;border-top:1px solid var(--line)}.closing{padding:48px 24px 30px;display:block}.closing p{margin-top:24px}footer{padding:18px 24px 30px;display:block}footer span{display:block;margin-bottom:8px}}
+    @media(max-width:390px){.price{font-size:74px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{body{background:#fff}.sheet{box-shadow:none}.hero{min-height:0}.copy,.photo{min-height:560px}.offer{-webkit-print-color-adjust:exact;print-color-adjust:exact}.photo{break-inside:avoid}footer{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="topline"></div>
+    <header class="masthead"><div class="brand">Volvo <span>/</span> спецпредложение</div><div class="meta">Персонально · 07 октября 2026<br>Действует до 31 октября 2026</div></header>
+    <section class="hero" aria-labelledby="heading">
+      <div class="copy">
+        <div class="eyebrow">Тягач для дела. Предложение для своих.</div>
+        <h1 id="heading">Volvo<span>FH</span></h1>
+        <p class="hero-sub">Globetrotter в идеальном состоянии — готов к осмотру и предметному разговору о покупке.</p>
+        <div class="rule"></div>
+        <div class="stats"><div class="stat"><small>Пробег</small><strong>1 200 000 км</strong></div><div class="stat"><small>Состояние</small><strong>Идеальное</strong></div></div>
+      </div>
+      <div class="photo"><img src="assets/volvo-front.jpg" alt="Volvo FH Globetrotter, вид спереди" fetchpriority="high"><div class="photo-label"><b>VOLVO FH</b>Фотография автомобиля</div></div>
+    </section>
+    <section class="offer" aria-label="Цена предложения">
+      <div class="offer-left"><div class="offer-kicker">Персональная цена</div><div class="old">6 500 000 ₽</div><div class="price">6 300 000<small>₽</small></div><div class="saving">Скидка для Георгия Амаяковича — 200 000 ₽</div></div>
+      <div class="offer-right"><div class="friend">Особые условия — <em>для близких друзей.</em></div><div class="deadline"><strong>Срок предложения</strong>Специальная цена действует до 31 октября 2026 года. Договориться об осмотре и условиях покупки лучше сейчас.</div></div>
+    </section>
+    <section class="personal" aria-label="Адресат и отправитель"><div class="address"><small>Предложение для</small><strong>Медалиева Георгия Амаяковича</strong></div><div class="address"><small>От</small><strong>Мамина Аркадия Витальевича</strong></div></section>
+    <section class="closing"><h2>Успей договориться <span>сейчас.</span><br>Завтра может быть поздно.</h2><p>Персональные условия обсуждаются напрямую с Аркадием Витальевичем.</p></section>
+    <footer><span>Персональное коммерческое предложение · 07.10.2026</span><span>Состояние автомобиля указано со слов владельца; итоговые условия согласуются при осмотре.</span></footer>
+  </main>
+</body>
+</html>
