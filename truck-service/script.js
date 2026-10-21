@@ -17,7 +17,8 @@ form.addEventListener('submit',event=>{
   if(!symptoms){form.elements.symptoms.setCustomValidity('Опишите неисправность.');form.elements.symptoms.reportValidity();return;}
   form.elements.symptoms.setCustomValidity('');
   const model=form.elements.model.value.trim();
-  output.value=['Здравствуйте! Хочу обсудить ремонт.',`Техника: ${form.elements.type.value}.`,model?`Марка / модель / год: ${model}.`:'',`Описание задачи: ${symptoms}`,'','Подскажите, какие данные ещё понадобятся для оценки работ.'].filter((line,index)=>line||index>3).join('\n');
+  const location=form.elements.location.value.trim();
+  output.value=['Здравствуйте, «Гараж 61»! Хочу обсудить ремонт.',`Техника: ${form.elements.type.value}.`,model?`Марка / модель / год: ${model}.`:'',location?`Местонахождение техники: ${location}.`:'',`Описание задачи: ${symptoms}`,'','Подскажите, какие данные ещё понадобятся для оценки работ.'].filter((line,index)=>line||index>3).join('\n');
   form.hidden=true;result.hidden=false;copyStatus.textContent='';document.querySelector('#copy-request').textContent='Скопировать текст';output.focus({preventScroll:true});
 });
 form.elements.symptoms.addEventListener('input',()=>form.elements.symptoms.setCustomValidity(''));

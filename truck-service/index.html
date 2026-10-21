@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102738">
-  <meta name="description" content="Ремонт тягачей и полуприцепов. Выберите направление и подготовьте описание неисправности для обращения в грузовой сервис.">
+  <meta name="description" content="Гараж 61 — ремонт тягачей и полуприцепов. Выездной мастер по Ростовской области.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ремонт тягачей и полуприцепов — Грузовой сервис">
-  <meta property="og:description" content="Техника должна работать. Ремонт тягачей и полуприцепов.">
+  <meta property="og:title" content="Гараж 61 — ремонт тягачей и полуприцепов">
+  <meta property="og:description" content="Гараж 61. Ремонт тягачей и полуприцепов. Выездной мастер по Ростовской области.">
   <meta property="og:image" content="https://arkahakick21-del.github.io/open-sites/truck-service/assets/truck-hero.webp">
-  <title>Ремонт тягачей и полуприцепов — Грузовой сервис</title>
+  <title>Гараж 61 — ремонт тягачей и полуприцепов</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="style.css">
@@ -28,13 +28,13 @@
   <a class="skip-link" href="#main">К содержанию</a>
   <header class="header">
     <div class="header-inner wrap">
-      <a href="#" class="brand" aria-label="Грузовой сервис — в начало">
+      <a href="#" class="brand" aria-label="Гараж 61 — в начало">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>ГРУЗОВОЙ<span>СЕРВИС</span></span>
+        <span>ГАРАЖ 61<span>ГРУЗОВОЙ СЕРВИС</span></span>
       </a>
       <nav class="desktop-nav" aria-label="Основная навигация">
         <a href="#work">Виды работ</a>
-        <a href="#preparation">Перед ремонтом</a>
+        <a href="#field-service">Выездной мастер</a>
         <a href="#questions">Вопросы</a>
       </nav>
       <a class="header-action" href="#request">Подготовить обращение <svg><use href="#diagonal"/></svg></a>
@@ -42,7 +42,7 @@
       <button class="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
     </div>
     <nav id="mobile-menu" class="mobile-menu" aria-label="Мобильная навигация" hidden>
-      <a href="#work">Виды работ</a><a href="#preparation">Перед ремонтом</a><a href="#questions">Вопросы</a><a href="#request">Подготовить обращение <span>↗</span></a>
+      <a href="#work">Виды работ</a><a href="#field-service">Выездной мастер</a><a href="#questions">Вопросы</a><a href="#request">Подготовить обращение <span>↗</span></a>
     </nav>
   </header>
   <main id="main">
@@ -52,11 +52,20 @@
       <div class="hero-content wrap">
         <p class="eyebrow light"><span class="signal"></span>РЕМОНТ ТЯГАЧЕЙ И ПОЛУПРИЦЕПОВ</p>
         <h1 id="hero-title">ТЕХНИКА<br>ДОЛЖНА<br><span>РАБОТАТЬ.</span></h1>
-        <p class="hero-copy">От тягача до полуприцепа.<br>Всё начинается с понимания задачи.</p>
+        <p class="hero-copy">Выездной мастер по Ростовской области.<br>Ремонт тягачей и полуприцепов.</p>
         <a class="button orange" href="#work">Что нужно отремонтировать <svg><use href="#arrow"/></svg></a>
       </div>
       <span class="hero-vertical" aria-hidden="true">ТЕХНИКА / РЕМОНТ / ДВИЖЕНИЕ</span>
       <div class="hero-bottom wrap"><span>ТЯГАЧИ <i></i> ПОЛУПРИЦЕПЫ</span><a href="#work">УЗНАТЬ БОЛЬШЕ <span>↓</span></a></div>
+    </section>
+
+
+    <section id="field-service" class="field-service" aria-labelledby="field-title">
+      <div class="wrap field-inner">
+        <div class="field-title"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M25 13c0 7-9 15-9 15S7 20 7 13a9 9 0 1 1 18 0Z"/><circle cx="16" cy="13" r="3"/></svg><div><p class="eyebrow">ПО РОСТОВСКОЙ ОБЛАСТИ</p><h2 id="field-title">ВЫЕЗДНОЙ МАСТЕР</h2></div></div>
+        <p class="field-copy">Укажите, где находится техника<br>и какая помощь требуется.</p>
+        <a href="#request" class="field-action">Обсудить выезд <svg><use href="#arrow"/></svg></a>
+      </div>
     </section>
 
     <section id="work" class="work section wrap">
@@ -105,6 +114,7 @@
           <form id="request-form">
             <fieldset><legend>Какая техника требует ремонта?</legend><div class="type-options"><label><input type="radio" name="type" value="Тягач" checked><span>Тягач</span></label><label><input type="radio" name="type" value="Полуприцеп"><span>Полуприцеп</span></label></div></fieldset>
             <label for="vehicle-model">Марка и модель <span class="optional">необязательно</span></label><input id="vehicle-model" name="model" type="text" maxlength="160" placeholder="Например, марка, модель, год" autocomplete="off">
+            <label for="vehicle-location">Где находится техника? <span class="optional">необязательно</span></label><input id="vehicle-location" name="location" type="text" maxlength="200" placeholder="Населённый пункт или участок дороги" autocomplete="off">
             <label for="symptoms">Что нужно отремонтировать?</label><textarea id="symptoms" name="symptoms" rows="4" maxlength="1800" required placeholder="Опишите, что произошло и как проявляется неисправность"></textarea>
             <button class="button orange form-button" type="submit">Собрать описание <svg><use href="#arrow"/></svg></button>
             <p class="form-note">Введённые данные никуда не отправляются.</p>
@@ -124,6 +134,7 @@
     <section id="questions" class="questions section wrap">
       <div class="question-heading"><p class="eyebrow"><span class="tiny-bar"></span>ВОПРОСЫ ПО ДЕЛУ</p><h2>ПЕРЕД ТЕМ,<br>КАК НАЧАТЬ.</h2></div>
       <div class="faq-list">
+        <details><summary>Что нужно для обсуждения выезда мастера?<span class="faq-plus" aria-hidden="true">+</span></summary><p>Укажите местонахождение техники в Ростовской области, её модель и описание неисправности. Возможность выезда, время и стоимость согласуются с мастером.</p></details>
         <details><summary>Можно обратиться, если причина неизвестна?<span class="faq-plus" aria-hidden="true">+</span></summary><p>Да. Для первого обращения достаточно описать симптомы. Точное название узла или детали знать необязательно.</p></details>
         <details><summary>Что указать в описании неисправности?<span class="faq-plus" aria-hidden="true">+</span></summary><p>Какая техника требует ремонта, что именно изменилось, когда появилась проблема и в каких условиях повторяется. Если есть сообщения на панели или результаты диагностики, подготовьте их отдельно.</p></details>
         <details><summary>Можно ли заранее определить стоимость и срок?<span class="faq-plus" aria-hidden="true">+</span></summary><p>Для точной оценки нужны сведения о неисправности и объёме работ. Фотографии и подробное описание помогут начать обсуждение, но не всегда заменяют осмотр.</p></details>
@@ -131,6 +142,6 @@
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="wrap footer-inner"><a href="#" class="brand footer-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>ГРУЗОВОЙ<span>СЕРВИС</span></span></a><p>Ремонт тягачей и полуприцепов.</p><a href="#" class="back-top">В начало <span>↑</span></a></div><div class="wrap footer-bottom"><span>ТЕХНИКА ДОЛЖНА РАБОТАТЬ.</span><span>2026</span></div></footer>
+  <footer class="footer"><div class="wrap footer-inner"><a href="#" class="brand footer-brand" aria-label="Гараж 61 — в начало"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>ГАРАЖ 61<span>ГРУЗОВОЙ СЕРВИС</span></span></a><p>Ремонт тягачей и полуприцепов.<br>Выездной мастер по Ростовской области.</p><a href="#" class="back-top">В начало <span>↑</span></a></div><div class="wrap footer-bottom"><span>ТЕХНИКА ДОЛЖНА РАБОТАТЬ.</span><span>2026</span></div></footer>
 </body>
 </html>
