@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102738">
+  <meta name="description" content="Ремонт тягачей и полуприцепов. Выберите направление и подготовьте описание неисправности для обращения в грузовой сервис.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ремонт тягачей и полуприцепов — Грузовой сервис">
+  <meta property="og:description" content="Техника должна работать. Ремонт тягачей и полуприцепов.">
+  <meta property="og:image" content="https://arkahakick21-del.github.io/open-sites/truck-service/assets/truck-hero.webp">
+  <title>Ремонт тягачей и полуприцепов — Грузовой сервис</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="assets/truck-hero.webp">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="tractor" viewBox="0 0 180 90"><path d="M17 68V31l12-15h45v52m-1-30h21l17 22h45v8H17m10-29V27h34v19H27m50 2h14l9 12H77M39 68h20m26 0h28m22 0h21"/><circle cx="29" cy="69" r="11"/><circle cx="76" cy="69" r="11"/><circle cx="124" cy="69" r="11"/><circle cx="149" cy="69" r="11"/><path d="M115 53h38M44 53h10M11 82h155"/></symbol>
+    <symbol id="trailer" viewBox="0 0 180 90"><path d="M12 17h154v43H12zm0 43h154v8H33m10 0v12m51-12h19m22 0h20M24 25h130M26 30v23m25-23v23m25-23v23m25-23v23m25-23v23m25-23v23M12 82h154"/><circle cx="103" cy="70" r="10"/><circle cx="127" cy="70" r="10"/><circle cx="151" cy="70" r="10"/></symbol>
+    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <header class="header">
+    <div class="header-inner wrap">
+      <a href="#" class="brand" aria-label="Грузовой сервис — в начало">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>ГРУЗОВОЙ<span>СЕРВИС</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <a href="#work">Виды работ</a>
+        <a href="#preparation">Перед ремонтом</a>
+        <a href="#questions">Вопросы</a>
+      </nav>
+      <a class="header-action" href="#request">Подготовить обращение <svg><use href="#diagonal"/></svg></a>
+      <a class="mobile-work-link" href="#work">Виды работ <span>↓</span></a>
+      <button class="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
+    </div>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Мобильная навигация" hidden>
+      <a href="#work">Виды работ</a><a href="#preparation">Перед ремонтом</a><a href="#questions">Вопросы</a><a href="#request">Подготовить обращение <span>↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero-picture"><img src="assets/truck-hero.webp" alt="Иллюстрация: тягач с полуприцепом в стальном и тёмно-синем оформлении" width="1659" height="948" fetchpriority="high"></picture>
+      <div class="hero-shade"></div>
+      <div class="hero-content wrap">
+        <p class="eyebrow light"><span class="signal"></span>РЕМОНТ ТЯГАЧЕЙ И ПОЛУПРИЦЕПОВ</p>
+        <h1 id="hero-title">ТЕХНИКА<br>ДОЛЖНА<br><span>РАБОТАТЬ.</span></h1>
+        <p class="hero-copy">От тягача до полуприцепа.<br>Всё начинается с понимания задачи.</p>
+        <a class="button orange" href="#work">Что нужно отремонтировать <svg><use href="#arrow"/></svg></a>
+      </div>
+      <span class="hero-vertical" aria-hidden="true">ТЕХНИКА / РЕМОНТ / ДВИЖЕНИЕ</span>
+      <div class="hero-bottom wrap"><span>ТЯГАЧИ <i></i> ПОЛУПРИЦЕПЫ</span><a href="#work">УЗНАТЬ БОЛЬШЕ <span>↓</span></a></div>
+    </section>
+
+    <section id="work" class="work section wrap">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span class="tiny-bar"></span>НАПРАВЛЕНИЯ РЕМОНТА</p><h2>ОДИН АВТОПОЕЗД.<br><span class="muted">ДВЕ ЗОНЫ ВНИМАНИЯ.</span></h2></div>
+        <p class="section-intro">Выберите технику, с которой нужна помощь. Точный состав работ зависит от неисправности.</p>
+      </div>
+      <div class="direction-grid">
+        <a href="#request" class="direction-card" data-type="Тягач">
+          <div class="card-top"><span class="card-label">СИЛА, КОТОРАЯ ВЕЗЁТ</span><span class="circle-arrow"><svg><use href="#diagonal"/></svg></span></div>
+          <svg class="vehicle" aria-hidden="true"><use href="#tractor"/></svg>
+          <div class="card-bottom"><div><h3>ТЯГАЧИ</h3><p>Разберём вашу задачу<br>по ремонту тягача.</p></div><span class="card-link">Описать задачу <span>↗</span></span></div>
+          <span class="card-track" aria-hidden="true"></span>
+        </a>
+        <a href="#request" class="direction-card trailer-card" data-type="Полуприцеп">
+          <div class="card-top"><span class="card-label">НАДЁЖНОСТЬ ВСЕГО СОСТАВА</span><span class="circle-arrow"><svg><use href="#diagonal"/></svg></span></div>
+          <svg class="vehicle" aria-hidden="true"><use href="#trailer"/></svg>
+          <div class="card-bottom"><div><h3>ПОЛУПРИЦЕПЫ</h3><p>Начнём с того, что требует<br>внимания в полуприцепе.</p></div><span class="card-link">Описать задачу <span>↗</span></span></div>
+          <span class="card-track" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="work-footnote"><svg aria-hidden="true"><use href="#plus"/></svg><p>Опишите проблему своими словами. Необязательно знать название детали.</p></div>
+    </section>
+
+    <section class="statement" aria-label="Подход к ремонту">
+      <div class="statement-inner wrap">
+        <div class="statement-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+        <h2>ЗА КАЖДОЙ МАШИНОЙ —<br><span>ВАШЕ ДЕЛО.</span></h2>
+        <p>Рейс, груз, обязательства.<br>Поэтому в разговоре о ремонте<br>важна конкретика.</p>
+      </div>
+    </section>
+
+    <section id="preparation" class="preparation section wrap">
+      <div class="section-heading"><div><p class="eyebrow"><span class="tiny-bar"></span>ПЕРЕД ОБРАЩЕНИЕМ</p><h2>МЕНЬШЕ ДОГАДОК.<br><span class="muted">БОЛЬШЕ ЯСНОСТИ.</span></h2></div><p class="section-intro">Три простых шага, чтобы мастеру было легче понять вашу задачу.</p></div>
+      <ol class="steps">
+        <li><span class="step-number">01<span> / </span></span><h3>Назовите технику</h3><p>Тягач или полуприцеп, марка, модель и год выпуска — если они известны.</p></li>
+        <li><span class="step-number">02<span> / </span></span><h3>Опишите симптомы</h3><p>Что изменилось, когда это началось и в каких условиях проявляется.</p></li>
+        <li><span class="step-number">03<span> / </span></span><h3>Подготовьте детали</h3><p>Фото проблемного места, сообщения на панели или результаты предыдущей диагностики.</p></li>
+      </ol>
+    </section>
+
+    <section id="request" class="request-section">
+      <div class="request-inner wrap">
+        <div class="request-copy"><p class="eyebrow light"><span class="signal"></span>НАЧНЁМ С ВАШЕЙ ЗАДАЧИ</p><h2>ЧТО СЛУЧИЛОСЬ<br><span>С ТЕХНИКОЙ?</span></h2><p>Соберите короткое описание для разговора с мастером. Его можно скопировать и передать удобным способом.</p><div class="local-note"><svg><use href="#check"/></svg><span>Это подготовка сообщения,<br>а не отправка заявки.</span></div><span class="request-decoration" aria-hidden="true">↗</span></div>
+        <div class="request-panel">
+          <form id="request-form">
+            <fieldset><legend>Какая техника требует ремонта?</legend><div class="type-options"><label><input type="radio" name="type" value="Тягач" checked><span>Тягач</span></label><label><input type="radio" name="type" value="Полуприцеп"><span>Полуприцеп</span></label></div></fieldset>
+            <label for="vehicle-model">Марка и модель <span class="optional">необязательно</span></label><input id="vehicle-model" name="model" type="text" maxlength="160" placeholder="Например, марка, модель, год" autocomplete="off">
+            <label for="symptoms">Что нужно отремонтировать?</label><textarea id="symptoms" name="symptoms" rows="4" maxlength="1800" required placeholder="Опишите, что произошло и как проявляется неисправность"></textarea>
+            <button class="button orange form-button" type="submit">Собрать описание <svg><use href="#arrow"/></svg></button>
+            <p class="form-note">Введённые данные никуда не отправляются.</p>
+          </form>
+          <div id="request-result" hidden>
+            <span class="result-badge"><svg><use href="#check"/></svg>Описание готово</span>
+            <h3>ВСЯ ЗАДАЧА —<br>В ОДНОМ СООБЩЕНИИ.</h3>
+            <label for="prepared-text">Текст для обращения</label><textarea id="prepared-text" readonly rows="8"></textarea>
+            <button type="button" id="copy-request" class="button orange form-button">Скопировать текст <svg><use href="#arrow"/></svg></button>
+            <p id="copy-status" class="copy-status" aria-live="polite"></p>
+            <button type="button" id="edit-request" class="edit-request">← Изменить описание</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="questions" class="questions section wrap">
+      <div class="question-heading"><p class="eyebrow"><span class="tiny-bar"></span>ВОПРОСЫ ПО ДЕЛУ</p><h2>ПЕРЕД ТЕМ,<br>КАК НАЧАТЬ.</h2></div>
+      <div class="faq-list">
+        <details><summary>Можно обратиться, если причина неизвестна?<span class="faq-plus" aria-hidden="true">+</span></summary><p>Да. Для первого обращения достаточно описать симптомы. Точное название узла или детали знать необязательно.</p></details>
+        <details><summary>Что указать в описании неисправности?<span class="faq-plus" aria-hidden="true">+</span></summary><p>Какая техника требует ремонта, что именно изменилось, когда появилась проблема и в каких условиях повторяется. Если есть сообщения на панели или результаты диагностики, подготовьте их отдельно.</p></details>
+        <details><summary>Можно ли заранее определить стоимость и срок?<span class="faq-plus" aria-hidden="true">+</span></summary><p>Для точной оценки нужны сведения о неисправности и объёме работ. Фотографии и подробное описание помогут начать обсуждение, но не всегда заменяют осмотр.</p></details>
+        <details><summary>Форма на сайте отправляет заявку в сервис?<span class="faq-plus" aria-hidden="true">+</span></summary><p>Нет. Сейчас она помогает подготовить описание: заполните поля, скопируйте готовый текст и передайте его мастеру удобным способом.</p></details>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><a href="#" class="brand footer-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>ГРУЗОВОЙ<span>СЕРВИС</span></span></a><p>Ремонт тягачей и полуприцепов.</p><a href="#" class="back-top">В начало <span>↑</span></a></div><div class="wrap footer-bottom"><span>ТЕХНИКА ДОЛЖНА РАБОТАТЬ.</span><span>2026</span></div></footer>
+</body>
+</html>
