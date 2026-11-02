@@ -7,3 +7,5 @@
 sovet/logs/
 __pycache__/
 *.pyc
+sovet/data/
+sovet/.venv/

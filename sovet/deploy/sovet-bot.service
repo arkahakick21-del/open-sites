@@ -1,0 +1,28 @@
+# Служба systemd для Telegram-бота «Совещание».
+# Файл копируется в /etc/systemd/system/sovet-bot.service скриптом deploy/install.sh.
+# Пути ниже рассчитаны на установку в /opt/open-sites от пользователя sovet.
+
+[Unit]
+Description=Telegram-бот «Совещание Claude и ChatGPT»
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sovet
+Group=sovet
+WorkingDirectory=/opt/open-sites/sovet
+ExecStart=/opt/open-sites/sovet/.venv/bin/python /opt/open-sites/sovet/bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+# Ограничения безопасности: бот видит только свою папку
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/open-sites/sovet
+
+[Install]
+WantedBy=multi-user.target
