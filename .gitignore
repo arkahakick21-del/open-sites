@@ -1,0 +1,9 @@
+# Секреты: ключи API никогда не попадают в git
+.env
+*.env
+!.env.example
+
+# Протоколы совещаний и мусор Python
+sovet/logs/
+__pycache__/
+*.pyc
