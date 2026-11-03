@@ -14,8 +14,10 @@
  * (адрес или координаты «широта,долгота»). Нужен для складов, которые Google
  * по сырому адресу находит неверно. Справочник можно пополнять руками.
  *
- * Если Google нашёл не тот населённый пункт, что написан в адресе, ячейка «Км»
- * подсвечивается жёлтым, а в примечании написано, что именно нашлось.
+ * Если адрес не найден или Google нашёл не тот населённый пункт, что написан
+ * в адресе, ячейка адреса (G или H) становится КРАСНОЙ, а в примечании к «Км»
+ * написано, что именно нашлось. Диспетчер уточняет город прямо в красной ячейке
+ * и запускает «Пересчитать красные» — красный снимается, когда маршрут построен.
  */
 
 var KM = {
@@ -27,7 +29,7 @@ var KM = {
   COL_KM: 14,          // N — км
   ALIAS_SHEET: 'Адреса',
   COUNTRY_HINT: 'Россия',
-  WARN_COLOR: '#fff2b3',
+  RED: '#f59999',      // адрес не найден или найден не там: впишите точное название города
   MAX_PER_RUN: 150     // предохранитель от перерасхода дневной квоты Google
 };
 
@@ -37,6 +39,7 @@ function onOpen() {
   SpreadsheetApp.getUi().createMenu('Километраж')
     .addItem('Рассчитать пустые км (все машины)', 'fillKm')
     .addItem('Пересчитать км в выделенных строках', 'recalcSelection')
+    .addItem('Пересчитать красные (уточнённые адреса)', 'recalcMarked')
     .addSeparator()
     .addItem('Включить автозапуск (раз в час)', 'enableHourlyTrigger')
     .addItem('Выключить автозапуск', 'disableTriggers')
@@ -75,6 +78,26 @@ function recalcSelection() {
   processSheet_(sh, rows, true, ctx);
   report_(ctx);
 }
+
+/** Пересчитывает рейсы, у которых адрес загрузки или выгрузки помечен красным. */
+function recalcMarked() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ctx = { aliases: loadAliases_(ss), done: 0, cancelled: 0, failed: 0, flagged: 0, skipped: 0, lines: [] };
+  var sheets = ss.getSheets().filter(function (sh) { return /^\d+$/.test(sh.getName()); });
+  for (var i = 0; i < sheets.length; i++) {
+    var sh = sheets[i], last = sh.getLastRow();
+    if (last < KM.FIRST_ROW) continue;
+    var bg = sh.getRange(KM.FIRST_ROW, KM.COL_LOAD, last - KM.FIRST_ROW + 1, 2).getBackgrounds();
+    var rows = [];
+    for (var r = 0; r < bg.length; r++) {
+      if (isRed_(bg[r][0]) || isRed_(bg[r][1])) rows.push(KM.FIRST_ROW + r);
+    }
+    if (rows.length) processSheet_(sh, rows, true, ctx);
+  }
+  report_(ctx);
+}
+
+function isRed_(color) { return String(color || '').toLowerCase() === KM.RED.toLowerCase(); }
 
 function enableHourlyTrigger() {
   disableTriggers();
@@ -120,6 +143,7 @@ function processSheet_(sh, onlyRows, overwrite, ctx) {
 
     if (/отмен/i.test(status) || /отмен/i.test(comment)) {
       cell.setValue(0).setNote('Рейс отменён — 0 км. ' + stamp_()).setBackground(null);
+      sh.getRange(row, KM.COL_LOAD, 1, 2).setBackground(null);
       ctx.cancelled++;
       continue;
     }
@@ -132,30 +156,56 @@ function processSheet_(sh, onlyRows, overwrite, ctx) {
       continue;
     }
 
+    var loadCell = sh.getRange(row, KM.COL_LOAD);
+    var unloadCell = sh.getRange(row, KM.COL_UNLOAD);
+    var nLoad = parsePoints_(load).length;            // сколько точек пришло из колонки загрузки
+
     try {
-      var points = raw.map(function (a) { return resolvePoint_(a, ctx.aliases); });
-      var legs = routeLegs_(points);
-      var total = 0, noteLines = [], warns = [];
+      var points = [];
+      for (var p = 0; p < raw.length; p++) {
+        try {
+          points.push(resolvePoint_(raw[p], ctx.aliases));
+        } catch (ePoint) {
+          (p < nLoad ? loadCell : unloadCell).setBackground(KM.RED);
+          throw ePoint;
+        }
+      }
+      var legs;
+      try {
+        legs = routeLegs_(points);
+      } catch (eRoute) {
+        loadCell.setBackground(KM.RED);
+        unloadCell.setBackground(KM.RED);
+        throw eRoute;
+      }
+
+      var total = 0, noteLines = [], warns = [], redLoad = false, redUnload = false;
       for (var k = 0; k < legs.length; k++) {
         total += legs[k].km;
         noteLines.push((k + 1) + '. ' + legs[k].from + ' → ' + legs[k].to + ': ' + Math.round(legs[k].km) + ' км');
       }
-      points.forEach(function (p) { if (p.warn) warns.push(p.warn); });
+      points.forEach(function (pt, idx) {
+        if (!pt.warn) return;
+        warns.push(pt.warn);
+        if (idx < nLoad) redLoad = true; else redUnload = true;
+      });
 
       var note = 'Google Карты, ' + stamp_() + '\n' + noteLines.join('\n') + '\nИтого: ' + Math.round(total) + ' км';
       if (warns.length) {
-        note = 'ПРОВЕРЬТЕ АДРЕС. ' + warns.join(' ') + '\nЕсли точка найдена неверно, добавьте склад на лист «Адреса» и пересчитайте строку.\n\n' + note;
-        cell.setBackground(KM.WARN_COLOR);
+        note = 'ПРОВЕРЬТЕ АДРЕС (красная ячейка). ' + warns.join(' ') + '\nВпишите точное название города в красную ячейку и запустите «Пересчитать красные».\n\n' + note;
+        loadCell.setBackground(redLoad ? KM.RED : null);
+        unloadCell.setBackground(redUnload ? KM.RED : null);
         ctx.flagged++;
         ctx.lines.push(tag + ': проверьте адрес — ' + warns.join(' '));
       } else {
-        cell.setBackground(null);
+        loadCell.setBackground(null);
+        unloadCell.setBackground(null);
       }
-      cell.setValue(Math.round(total)).setNote(note);
+      cell.setValue(Math.round(total)).setNote(note).setBackground(null);
       ctx.done++;
     } catch (e) {
       var msg = String(e && e.message ? e.message : e);
-      cell.setNote('Маршрут не построен: ' + msg + '\n' + stamp_() + '\nДобавьте склад на лист «Адреса» (адрес или координаты) или впишите км вручную.');
+      cell.setNote('Маршрут не построен: ' + msg + '\n' + stamp_() + '\nВпишите точное название города в красную ячейку адреса и запустите «Пересчитать красные», либо добавьте склад на лист «Адреса».');
       ctx.failed++;
       ctx.lines.push(tag + ': ' + msg);
       if (/quota|лимит|OVER_QUERY_LIMIT/i.test(msg)) {
