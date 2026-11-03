@@ -369,7 +369,7 @@ function stamp_() {
 }
 
 function report_(ctx) {
-  var text = 'Рассчитано: ' + ctx.done + ' (из них проверить адрес: ' + ctx.flagged + '), отменённых (0 км): ' + ctx.cancelled +
+  var text = 'Рассчитано: ' + ctx.done + ' (из них с красным адресом, проверить: ' + ctx.flagged + '), отменённых (0 км): ' + ctx.cancelled +
     ', не построено: ' + ctx.failed + ', уже были заполнены: ' + ctx.skipped + '.';
   if (ctx.lines.length) text += '\n' + ctx.lines.join('\n');
   Logger.log(text);
