@@ -9,3 +9,7 @@ __pycache__/
 *.pyc
 sovet/data/
 sovet/.venv/
+
+# Ассистент по Instagram: рабочие файлы, токены и окружение
+instagram-bot/data/
+instagram-bot/.venv/

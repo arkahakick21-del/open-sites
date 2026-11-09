@@ -1,0 +1,31 @@
+# Служба systemd для Telegram-бота «Ассистент по Instagram».
+# Файл копируется в /etc/systemd/system/insta-bot.service скриптом deploy/install.sh.
+# Пути рассчитаны на установку в /opt/insta-assistant от пользователя insta.
+
+[Unit]
+Description=Telegram-бот «Ассистент по Instagram»
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=insta
+Group=insta
+WorkingDirectory=/opt/insta-assistant/instagram-bot
+ExecStart=/opt/insta-assistant/instagram-bot/.venv/bin/python /opt/insta-assistant/instagram-bot/bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+# Монтаж видео грузит процессор: пусть не мешает остальному на сервере
+Nice=5
+
+# Ограничения безопасности. Ассистент выполняет команды на сервере,
+# поэтому он видит только папку бота и свою домашнюю папку.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/insta-assistant/instagram-bot /var/lib/insta
+
+[Install]
+WantedBy=multi-user.target
