@@ -31,7 +31,7 @@ OUT = WORKSPACE / "out"
 WORK = WORKSPACE / "work"
 NOTES = WORKSPACE / "NOTES.md"
 
-DEFAULT_MODEL = "claude-opus-5-5"
+DEFAULT_MODEL = "claude-sonnet-5-5"
 
 PY = sys.executable
 IG = f"{PY} {HERE / 'tools' / 'ig.py'}"
