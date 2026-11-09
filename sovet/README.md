@@ -53,7 +53,7 @@ python meeting.py
 | `OPENAI_API_KEY` | ключ OpenAI, https://platform.openai.com/api-keys |
 | `TELEGRAM_BOT_TOKEN` | токен бота от `@BotFather` (только для бота) |
 | `ALLOWED_USERS` | Telegram ID через запятую, кому разрешён бот |
-| `CLAUDE_MODEL` | по умолчанию `claude-opus-5-5` |
+| `CLAUDE_MODEL` | по умолчанию `claude-sonnet-5-5` |
 | `GPT_MODEL` | по умолчанию `gpt-5` |
 | `ROUNDS` | по умолчанию `3` |
 

@@ -14,7 +14,7 @@ from typing import Awaitable, Callable
 import anthropic
 import openai
 
-DEFAULT_CLAUDE_MODEL = "claude-opus-5-5"
+DEFAULT_CLAUDE_MODEL = "claude-sonnet-5-5"
 DEFAULT_GPT_MODEL = "gpt-5"
 DEFAULT_ROUNDS = 3
 
